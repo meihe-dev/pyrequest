@@ -4,7 +4,6 @@ sys.path.append('../db_fixture')
 from mysql_db import DB
 
 create_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-
 # 创建测试数据
 datas = {
     # 发布会表数据
@@ -39,6 +38,13 @@ def init_data():
         db.clear(table)
         for d in data:
             db.insert(table, d)
+    db.close()
+
+# 将测试数据清空
+def clear_data():
+    db = DB()
+    for table, data in datas.items():
+        db.clear(table)
     db.close()
 
 if __name__ == '__main__':

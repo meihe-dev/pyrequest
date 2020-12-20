@@ -1,9 +1,18 @@
 import requests
 import unittest
+from db_fixture import test_data
 
 
 class GetEventListTest(unittest.TestCase):
     '''查询发布会接口测试'''
+
+    # @classmethod
+    # def setUpClass(cls):
+    #     test_data.init_data()  # 初始化接口测试数据
+    #
+    # @classmethod
+    # def tearDownClass(cls):
+    #     test_data.clear_data()  # 清空测试数据
 
     def setUp(self):
         self.url = 'http://127.0.0.1:8000/api/get_event_list/'
